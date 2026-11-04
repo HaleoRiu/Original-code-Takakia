@@ -20,7 +20,7 @@ root <- "/Volumes/Haleo_DK01/WD_Takakia_F"
 amp_dir <- file.path(root, "amplicon-data")
 mg_dir <- file.path(root, "metagenome-data")
 fig4_dir <- file.path(mg_dir, "Figure4")
-out_dir <- file.path(root, "正文", "V3", "Final_version")
+out_dir <- file.path(root, "manuscript", "V3", "Final_version")
 out_csv <- file.path(out_dir, "Figure1-3_nonpaired_statistical_recheck.csv")
 
 sig_symbol <- function(q) {

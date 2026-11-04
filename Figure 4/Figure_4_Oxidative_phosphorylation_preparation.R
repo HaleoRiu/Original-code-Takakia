@@ -1,6 +1,6 @@
 options(stringsAsFactors = FALSE, warn = 1)
 
-work <- "/Users/haleoriu/Documents/Takakia绘图和文章修改/outputs/CNPS_altitude_sum_revision_2026-07-21/V2_3_categories/work"
+work <- file.path(Sys.getenv("TAKAKIA_PROJECT_DIR", unset = "~/Documents/Takakia"), "outputs/CNPS_altitude_sum_revision_2026-07-21/V2_3_categories/work")
 feature_tpm_path <- "/Volumes/Haleo_DK01/WD_Takakia_F/metagenome-data/Figure7_CNPS/CNPS_EggNOG_split_results/prepared/CNPS_feature_renormalized_TPM_by_sample.tsv"
 c_snapshot_path <- "/Volumes/Haleo_DK01/WD_Takakia_F/metagenome-data/Figure7_CNPS/CNPS_altitude_pathway_2026-07-20/tables/latest_CNPS_feature_list_snapshot.tsv"
 s_transport_path <- "/Volumes/Haleo_DK01/WD_Takakia_F/metagenome-data/Figure7_CNPS/S_transporter_screen_2026-07-20/retained_KO_renormalized_TPM_by_sample.tsv"

@@ -1,7 +1,7 @@
 options(stringsAsFactors = FALSE, scipen = 999)
 
 root <- "/Volumes/Haleo_DK01/WD_Takakia_F/metagenome-data/Figure7_CNPS"
-out <- "/Users/haleoriu/Documents/Takakia绘图和文章修改/Figure4_final_tables_2026-07-26/work"
+out <- file.path(Sys.getenv("TAKAKIA_PROJECT_DIR", unset = "~/Documents/Takakia"), "Figure4_final_tables_2026-07-26/work")
 dir.create(out, recursive = TRUE, showWarnings = FALSE)
 
 read_tsv <- function(path) {

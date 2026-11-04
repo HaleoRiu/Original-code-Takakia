@@ -10,7 +10,7 @@ suppressPackageStartupMessages({
   library(cowplot)
 })
 
-out_dir <- "/Users/haleoriu/Documents/Takakia绘图和文章修改/enriched_pathway_soil_partial_spearman_2026-07-30"
+out_dir <- file.path(Sys.getenv("TAKAKIA_PROJECT_DIR", unset = "~/Documents/Takakia"), "enriched_pathway_soil_partial_spearman_2026-07-30")
 pathway_file <- "/Volumes/Haleo_DK01/WD_Takakia_F/metagenome-data/Figure4/Figure4_integrated_pathway_abundance_by_sample.csv"
 soil_file <- "/Volumes/Haleo_DK01/WD_Takakia_F/amplicon-data/psychem.txt"
 
@@ -89,8 +89,8 @@ p_e <- p_e + theme(legend.position = "none")
 combined <- plot_grid(p_r, p_e, legend, nrow = 1, rel_widths = c(1, 1, 0.20), labels = c("C", "D"),
                       label_fontfamily = "Helvetica", label_fontface = "bold", label_size = 15)
 
-ggsave(file.path(out_dir, "Fig_S4c_d_Spearman_summed_pathway_soil_BH.pdf"), combined, width = 15.6, height = 5.35, units = "in")
-ggsave(file.path(out_dir, "Fig_S4c_d_Spearman_summed_pathway_soil_BH.png"), combined, width = 15.6, height = 5.35, units = "in", dpi = 600)
+ggsave(file.path(out_dir, "Figure7c_d_Spearman_summed_pathway_soil_BH.pdf"), combined, width = 15.6, height = 5.35, units = "in")
+ggsave(file.path(out_dir, "Figure7c_d_Spearman_summed_pathway_soil_BH.png"), combined, width = 15.6, height = 5.35, units = "in", dpi = 600)
 write.table(results %>% select(-Pathway_label), file.path(out_dir, "Spearman_summed_pathway_soil_BH_results.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE)
 writeLines(c(

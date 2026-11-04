@@ -1,6 +1,6 @@
 options(stringsAsFactors = FALSE)
 
-root <- "/Users/haleoriu/Documents/Takakia绘图和文章修改"
+root <- Sys.getenv("TAKAKIA_PROJECT_DIR", unset = "~/Documents/Takakia")
 proj <- file.path(root, "HGT_full_event_sheet_2026-07-27")
 dir.create(file.path(proj, "work"), recursive = TRUE, showWarnings = FALSE)
 

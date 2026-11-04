@@ -27,7 +27,7 @@ for r1_file in "$input_dir"/*.R1.raw.fastq.gz; do
     
 
     if [ -f "$r2_file" ]; then
-        # 运行 trim_galore
+        # Run Trim Galore
         trim_galore --quality 30 --length 50 --paired --cores 4 --output_dir "$output_dir" "$r1_file" "$r2_file"
     else
         echo "Warning: Corresponding R2 file not found for $r1_file"

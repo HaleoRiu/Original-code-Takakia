@@ -1,12 +1,12 @@
 rm(list = ls())
-setwd('/Users/haleoriu/Documents/Takakia绘图和文章修改/outputs/Figure7_environment_association_20261013/evidence_priority_no_AN_v1')
+setwd(file.path(Sys.getenv("TAKAKIA_PROJECT_DIR", unset = "~/Documents/Takakia"), "outputs/Figure7_environment_association_20261013/evidence_priority_no_AN_v1"))
 library(ggplot2)
 library(ggrepel)
 library(cowplot)
 library(grid)
 set.seed(20261013)
 
-# 使用已经拟合并核验的排序坐标和模型统计量。
+# Use fitted and verified ordination coordinates and model statistics.
 preset <- 'Elevation_evidencePriorityVIF10'
 sites <- read.delim('tables/dbRDA_sites.tsv', check.names = FALSE)
 arrows <- read.delim('tables/dbRDA_arrows.tsv', check.names = FALSE)
@@ -41,8 +41,8 @@ plots <- lapply(profile_order, function(profile) {
           plot.margin = margin(5.5, 5.5, 5.5, 5.5))
 })
 
-# 全部六图共用相同的外部排版尺寸，使绘图区边框宽高一致。
-# 坐标轴刻度文字宽度不同，也不会改变单个面板的绘图区大小。
+# Use identical outer dimensions for all six panels to align their plotting regions.
+# Keep plotting-region sizes fixed despite differences in tick-label widths.
 grobs <- lapply(plots, ggplotGrob)
 stopifnot(length(unique(vapply(grobs, function(g) length(g$widths), integer(1)))) == 1,
           length(unique(vapply(grobs, function(g) length(g$heights), integer(1)))) == 1)

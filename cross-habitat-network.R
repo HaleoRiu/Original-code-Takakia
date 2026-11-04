@@ -12,11 +12,11 @@ taxonomy <- read.delim("taxonomy_bacteria.txt", header = TRUE, sep = "\t", row.n
 
 total_reads <- rowSums(asv_data)
 asv_data <- asv_data[total_reads >= 10, ]
-cat("过滤总reads<10后ASV数量:", nrow(asv_data), "\n")
+cat("ASV count after removing total reads < 10:", nrow(asv_data), "\n")
 
 sample_occurrence <- rowSums(asv_data > 0)
 asv_data <- asv_data[sample_occurrence >= 6, ]
-cat("过滤出现样本数<6后ASV数量:", nrow(asv_data), "\n")
+cat("ASV count after requiring occurrence in at least 6 samples:", nrow(asv_data), "\n")
 
 taxonomy <- taxonomy[rownames(asv_data), ]
 

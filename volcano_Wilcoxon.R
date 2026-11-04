@@ -29,7 +29,7 @@ calc_diff <- function(row, group1_samples, group2_samples, method = "wilcox") {
 plant_samples <- rownames(colData)[colData$condition == "Plant"]
 soil_samples <- rownames(colData)[colData$condition == "Soil"]
 
-res_list <- apply(tpm_df, 1, calc_diff, group1_samples = soil_samples, group2_samples = plant_samples, method = "wilcox")  # 改"t"为t-test
+res_list <- apply(tpm_df, 1, calc_diff, group1_samples = soil_samples, group2_samples = plant_samples, method = "wilcox")  # Use "t" to select a t-test
 res_df <- as.data.frame(t(res_list))
 res_df$KO_ID <- rownames(res_df)
 res_df$padj <- p.adjust(res_df$pvalue, method = "BH")
@@ -54,7 +54,7 @@ res_df$group <- factor(res_df$group, levels = c("Up", "Down", "NS"))
 p <- ggplot(res_df, aes(x = log2FC, y = -log10(padj), color = color_group)) +
   geom_point(alpha = 0.6, size = 1.5) +
   
-  geom_point(data = subset(res_df, category != "Other"), alpha = 0.8, size = 2) +  # alpha稍高，size稍大以突出
+  geom_point(data = subset(res_df, category != "Other"), alpha = 0.8, size = 2) +  # Increase opacity and point size for emphasis
   
   scale_color_manual(values = c(
     "Up" = "#01B7ED",

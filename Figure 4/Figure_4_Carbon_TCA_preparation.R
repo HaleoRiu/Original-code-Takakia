@@ -12,7 +12,7 @@ dir.create(work, recursive = TRUE, showWarnings = FALSE)
 
 catalog_path <- Sys.getenv(
   "C_CORE_CATALOG",
-  unset = file.path(project_dir, "input", "Takakia_C循环正文候选_rTCA与TCA双版本_2026-07-22.xlsx")
+  unset = file.path(project_dir, "input", "Takakia_Carbon_maintext_rTCA_TCA_candidates_2026-07-22.xlsx")
 )
 tpm_path <- Sys.getenv(
   "C_CORE_TPM",

@@ -85,7 +85,7 @@ done
 
 for r1 in "$QC_DIR"/*-S*.R1.raw_val_1.fq.gz; do
     if [ -f "$r1" ]; then
-        # 替换规则: R1.raw_val_1 -> R2.raw_val_2
+        # Replacement rule: R1.raw_val_1 -> R2.raw_val_2
         r2="${r1/R1.raw_val_1.fq.gz/R2.raw_val_2.fq.gz}"
         
         if [ -f "$r2" ]; then

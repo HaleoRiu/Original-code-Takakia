@@ -70,7 +70,7 @@ FNR == NR {
         delete temp_path_list 
         
         for (p in pathway_array) {
-            # 筛选 K 号
+            # Extract KEGG KO identifiers
             if (pathway_array[p] ~ /^K[0-9]+$/) {
                 temp_path_list[pathway_array[p]] = 1
                 num_pathways++
@@ -102,7 +102,7 @@ FNR == NR {
         split(map_gene_ko_str[gene], ko_list, ",")
         
         for (i = 2; i <= num_samples; i++) {
-            # 核心：丰度平分给 N 个功能
+            # Divide abundance equally among the N annotated functions
             weighted_abundance = $i / N
             for (k in ko_list) {
                 ko_id = ko_list[k]

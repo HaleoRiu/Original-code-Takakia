@@ -1,7 +1,7 @@
 options(stringsAsFactors = FALSE)
 library(grid)
 
-work <- "/Users/haleoriu/Documents/Takakia绘图和文章修改/outputs/CNPS_altitude_sum_revision_2026-07-21/V2_3_categories/work"
+work <- file.path(Sys.getenv("TAKAKIA_PROJECT_DIR", unset = "~/Documents/Takakia"), "outputs/CNPS_altitude_sum_revision_2026-07-21/V2_3_categories/work")
 upper <- read.delim(file.path(work, "upper_feature_catalog.tsv"), check.names = FALSE)
 summary_cat <- read.delim(file.path(work, "pathway_summary_catalog.tsv"), check.names = FALSE)
 upper_heat <- read.delim(file.path(work, "upper_heat_values.tsv"), check.names = FALSE)
